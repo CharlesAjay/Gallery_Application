@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_application/Model/image_model.dart';
+import 'package:gallery_application/Widgets/likes_views_widget.dart';
 
+///Show single image view
 class ImageView extends StatefulWidget {
   ImageView({super.key, required this.image});
   ImageModel image;
@@ -25,37 +27,13 @@ class _ImageViewState extends State<ImageView> {
                     height: widget.image.imageHeight > localSize.height * 0.7 ? localSize.height * 0.7 : widget.image.imageHeight.toDouble(),
                     child: imageWidget(widget.image),
                   ),
-                  likesAndViewsWidget(widget.image)
+                  LikesViews(image: widget.image)
                 ],
               ),
             ),
           ),
           // likesAndViewsWidget(widget.image),
         ],
-      ),
-    );
-  }
-  likesAndViewsWidget(ImageModel image) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: Wrap(
-          spacing: 8,
-          children: [
-            Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-              const Icon(Icons.favorite,color: Colors.red,),
-              Text('${image.likes}', style: const TextStyle(fontWeight: FontWeight.bold)),
-            ],),
-            Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-              const Icon(Icons.remove_red_eye_outlined,),
-              Text('${image.views}', style: const TextStyle(fontWeight: FontWeight.bold)),
-            ],),
-          ],),
       ),
     );
   }

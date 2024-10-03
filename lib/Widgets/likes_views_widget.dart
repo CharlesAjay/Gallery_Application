@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_application/Model/image_model.dart';
+
+/// Show Likes and Views count
 class LikesViews extends StatelessWidget {
   LikesViews({super.key,required this.image});
   ImageModel image;

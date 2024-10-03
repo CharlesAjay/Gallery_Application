@@ -1,3 +1,4 @@
+// Model class for image data
 class ImageModel {
   final String imageUrl;
   final int likes;
@@ -6,6 +7,7 @@ class ImageModel {
 
   ImageModel({required this.imageUrl, required this.likes, required this.views, required this.imageHeight});
 
+  /// Create an instance of [ImageModel] from JSON
   factory ImageModel.fromJson(Map<String, dynamic> json) {
     return ImageModel(
       imageUrl: json['webformatURL'],
